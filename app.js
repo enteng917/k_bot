@@ -23,11 +23,18 @@ server.get('/', function (session) {
     session.send("Hello World" );
 });
 
+var intents = new builder.IntentDialog();
+bot.dialog('/', intents);
+
+intents.onDeault(function(session, args, next) {
+    session.send(session.message.text);
+});
+
 //=========================================================
 // Bots Dialogs
 //=========================================================
 
-bot.dialog('/', function (session) {
-    seeeion.send(session.message.text);
-    session.send("Hello World!!!" );
-});
+//bot.dialog('/', function (session) {
+//    seeeion.send(session.message.text);
+//    session.send("Hello World!!!" );
+//});

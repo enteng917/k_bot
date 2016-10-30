@@ -33,6 +33,6 @@ var intents = new builder.IntentDialog();
 //=========================================================
 
 bot.dialog('/', function (session) {
-    seeeion.send(session);
+    session.send(session.message);
     session.send("Hello World!!!" );
 });

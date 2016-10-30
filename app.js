@@ -20,7 +20,6 @@ var connector = new builder.ChatConnector({
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 server.get('/', function (session) {
-    seeeion.send(session.message.text);
     session.send("Hello World" );
 });
 
@@ -29,5 +28,6 @@ server.get('/', function (session) {
 //=========================================================
 
 bot.dialog('/', function (session) {
+    seeeion.send(session.message.text);
     session.send("Hello World!!!" );
 });

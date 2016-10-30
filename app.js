@@ -34,6 +34,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] });
 //});
 bot.dialog('/', intents);
 intents.matches(/^greeting/i, function(session, args) {
+    console.log(args);
     session.send('greeting');
     session.send(args);
 });

@@ -33,7 +33,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] });
 //    session.send(session.message);
 //});
 bot.dialog('/', intents);
-intents.matches('greeting', function(session, args) {
+intents.matches(/^greeting/i, function(session, args) {
     session.send('greeting');
     session.send(args);
 });

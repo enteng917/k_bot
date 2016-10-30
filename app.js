@@ -23,11 +23,17 @@ server.get('/', function (session) {
     session.send("Hello World" );
 });
 
+var luis = 'https://api.projectoxford.ai/luis/v1/application?id=23da40c1-2009-4a4b-8298-474a0f929ed6&subscription-key=41d38fbedaa14628869b6883d45de360';
+var recognizer = new builder.LuisRecognizer(luis);
 var intents = new builder.IntentDialog();
-bot.dialog('/', intents);
+bot.dialog('/', [
+    function(session) {
+        session.send(session.message.text);
+    };
+]);
 
 intents.onDeault(function(session, args, next) {
-    session.send(session.message.text);
+    session.send("言っている意味がわかりません。");
 });
 
 //=========================================================
